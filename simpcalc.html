@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/simpcalc.css">
+</head>
+<body id="body">
+
+    <h1 align="center" style="font-family:sans-serif;">Simple Calculator</h1>
+    <section id="section">
+    
+    <input type="text" id="input1" placeholder="Enter the first number">
+    <input type="text" id="input2" placeholder="Enter the second number">
+        <br> <br>
+
+
+    <div class="mainsection">
+        <div style="display: flex;">
+            <button onclick="add()" class="button">Add</button>
+            <button onclick="subtract()" class="button">Subtract</button>
+            </div>
+        
+        
+            <div style="display: flex;">
+            <button onclick="multiply()" class="button">Multiply</button>
+            <button onclick="divide()" class="button">Divide</button><br>
+            </div>
+    </div>
+
+
+    <div id="display" style="font-size: 2em;"></div>
+
+    </div>
+    </section>
+    <div class="rec"></div>
+    <div class="rect"></div>
+    <div class="rect1"></div>
+    <div class="rect2"></div>
+    <div class="rect3"></div>
+    <div class="recta"></div>
+    <div class="rectan"></div>
+
+    <script>
+        
+
+        function add() {
+            var firstInput = input1.value
+            var secondInput = input2.value
+            var firstInput = input1.value
+            var secondInput = input2.value
+            var result= Number(firstInput) + Number(secondInput)
+            display.innerHTML -`The sum of the values is ${result.toFixed(2)}`
+            firstInput = ""
+            secondInput = ""
+        }
+        function subtract() {
+            var firstInput = input1.value
+            var secondInput = input2.value
+            var result= Number(firstInput) - Number(secondInput)
+            display.innerHTML -`The subtraction of the values is ${result.toFixed(2)}`
+            firstInput = ""
+            secondInput = ""
+        }
+        function divide() {
+            var firstInput = input1.value
+            var secondInput = input2.value 
+            var result= Number(firstInput) / Number(secondInput)
+            display.innerHTML -`The division of the values is ${result.toFixed(2)}`
+            firstInput = ""
+            secondInput = ""
+        }
+        function multiply() {
+            var firstInput = input1.value
+            var secondInput = input2.value
+            var result= Number(firstInput) * Number(secondInput)
+            display.innerHTML -`The multiplication of the values is ${result.toFixed(2)}`
+            firstInput = ""
+            secondInput = ""
+        }
+    </script>
+
+</body>
+</html>

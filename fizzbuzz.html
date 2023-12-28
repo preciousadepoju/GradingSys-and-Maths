@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" placeholder="enter your value" id="num">
+    <button onclick="checkValue()">Check</button>
+
+    <div id="display"></div>
+
+
+    <script>
+
+
+        function checkValue() {
+            var userAnswer = num.value
+            var song = new Audio("music/fizz.mp3")
+            var song1 = new Audio("music/buzz.mp3")
+            
+            if(userAnswer == ""){
+                display.innerHTML = "invalid"
+            } else if (num.value % 3 == 0 && num.value % 5 == 0) {
+                display.innerHTML += '<p>' + num.value + ' ' + '- ' + "fizzbuzz";
+            } else if (userAnswer % 3 == 0) {
+                display.innerHTML += '<p>' + num.value + ' ' + '- ' + "fizz";
+                    song.play()
+            } else if (userAnswer % 5 == 0) {
+                display.innerHTML += '<p>' + num.value + ' ' + '- ' + "buzz" ;
+                    song1.play()
+            } else {
+                display.innerHTML += '<p>' + num.value + ' is ' + 'an ' + "invalid input" ;
+            } 
+        }
+        
+
+
+        var date = new Date().toLocaleDateString()
+        console.log(date)
+        display.innerHTML = 'The date and time is ' + date
+    </script>
+</body>
+
+</html>

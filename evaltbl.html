@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body
+    style="background-image:url(/pexels-simon-berger-1323550.jpg); background-size:100% 100vh; overflow: hidden;">
+    <div class="row justify-content-center">
+        <input type="text " class=" my-5 form-control col-lg-6 rounded col-10 text-center w-25 mx-2" placeholder="Row"
+            style="background: rgba(255, 255, 255, 0); border-radius: 16px; box-shadow: 0px 4px 30px rgb(92, 90, 90);
+            backdrop-filter: blur(19.4px); -webkit-backdrop-filter: blur(19.4px); border: none;" id="input1">
+        <input type="text " class=" my-5 form-control col-lg-6 rounded col-10 text-center w-25" placeholder="Column"
+            style="background: rgba(255, 255, 255, 0); border-radius: 16px; box-shadow: 0px 4px 30px rgb(133, 131, 131);
+            backdrop-filter: blur(19.4px);-webkit-backdrop-filter: blur(19.4px); border: none;" id="input2">
+    </div>
+    <div class="my-2 row justify-content-center">
+        <button class="btn btn-outline-success col-lg-2 col-9 mx-2 my-2" onclick="add()">Addition</button>
+        <button class="btn btn-outline-success col-lg-2 col-9 mx-2 my-2" onclick="sub()">Subtraction</button>
+        <button class="btn btn-outline-success col-lg-2 col-9 mx-2 my-2" onclick="mult()">Multiplication</button>
+        <button class="btn btn-outline-success col-lg-2 col-9 mx-2 my-2" onclick="div()">Division</button>
+    </div>
+
+    <table id="display"></table>
+
+    <script>
+       
+        function add() {
+            if (input1.value == "" && input2.value == "") {
+                alert("Kindly input the values")
+            } else {
+                for (let i = 1; i <= input1.value ; i++) {
+                display.innerHTML += `${i}  `
+                for (let j = 1; j <= input2.value; j++) {
+                display.innerHTML +=` ${j} + ${i} = ${Number(j) + Number(i)} `;                    
+                }            
+        }   
+            }       
+        }
+
+        function sub() {
+            if (input1.value == "" && input2.value == "" || input1.value == "") {
+                alert("Kindly input the values")
+            } else {
+                for (let i = 1; i <= input1.value; i++) {
+                display.innerHTML += `${i}  `
+                for (let j = 1; j <=input2.value; j++) {
+                display.innerHTML +=` ${j} - ${i} = ${j-i} `;                    
+                }            
+        }   
+            }
+              
+        }
+
+        function mult() {
+            if (input1.value == "" && input2.value == "") {
+                alert("Kindly input the values");
+            } else {
+                for (let i = 1; i <= input1.value; i++) {
+                display.innerHTML += `${i}`
+                for (let j = 1; j <= input2.value; j++) {
+                display.innerHTML +=` ${i} * ${j} = ${j*i} `;                    
+                }            
+        }   
+            }
+              
+        }
+
+        function div() {
+            if (input1.value == "" && input2.value == "") {
+                alert("Kindly input the values");
+            } else {
+                for (let i = 1; i <= input1.value; i++) {
+                display.innerHTML += `${i}  `
+                for (let j = 1; j <= input2.value ; j++) {
+                    var x = j/i
+                display.innerHTML +=` ${i} / ${j} = ${x.toFixed(2)} `;                    
+                }            
+        }     
+            }
+            
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

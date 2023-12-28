@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+
+<body onload="displayProducts()" style="font-family:sans-serif;">
+    <h1 align="center" class="text-danger my-2">ToDo List</h1>
+    <div align="center">
+        <input type="text" class="my-5 text-danger form-control w-50" placeholder="Enter Your ToDo" id="userInput">
+        <button onclick="pushMe()" class="btn btn-outline-danger my-2 mx-2  w-25 fw-bold">Add ToDo</button>
+        <button onclick="removeFirst()" class="btn btn-outline-success my-2 mx-2 w-25  fw-bold">Delete first
+            ToDo</button>
+        <button onclick="removeLast()" class="btn btn-outline-primary my-2 mx-2 w-25  fw-bold">Delete last ToDo</button>
+        <button onclick="deleteAll()" class="btn btn-outline-warning my-2 mx-2 w-25  fw-bold">Delete All ToDos</button>
+        <!-- <button onclick="deleteOne()" class="btn btn-outline-danger my-2 mx-2 w-25  fw-bold">Delete one ToDo</button> -->
+        <!-- <button onclick="editOne()" class="btn btn-outline-danger my-2 mx-2 w-25  fw-bold">Edit One ToDo</button> -->
+
+    </div>
+    <hr>
+    <h3 class="text text-danger text-center">All ToDos</h3>
+    <div id="display" align="center" class="my-4"></div>
+
+
+
+    <script>
+        var allToDos = []
+
+        function displayProducts() {
+            display.innerHTML = ""
+            for (let index = 0; index < allToDos.length; index++) {
+                display.innerHTML += `
+                <h3 > ${allToDos[index]} </h3>
+                <button onclick="deleteOne(${index})" class="btn btn-outline-danger  my-2 mx-2 border-2
+                 fw-bold">Delete</button>
+                <button onclick="editOne(${index})" class="btn btn-outline-success my-2 mx-2 border-2 fw-bold">Edit</button>
+                    </div>
+
+            `
+            }
+        }
+        var index = 0
+
+        function pushMe() {
+            if (userInput.value == "") {
+                alert("Input an ToDo")
+            } else {
+                allToDos.push(userInput.value);
+                userInput.value = "";
+                displayProducts();
+
+            }
+
+        }
+
+        function removeFirst() {
+            if (allToDos.length == 0) {
+                alert("There are no ToDos")
+            } else {
+                allToDos.shift()
+                displayProducts();
+            }
+        }
+
+        function removeLast() {
+            if (allToDos.length == 0) {
+                alert("There are no ToDos")
+            } else {
+                allToDos.pop()
+                displayProducts();
+
+            }
+        }
+
+        function deleteAll() {
+            var response = confirm("Are you sure you want to delete all products")
+            if (response == true) {
+                allToDos.splice(0, allToDos.length)
+                displayProducts();
+
+            } else(
+                alert("You're saved")
+            )
+
+        }
+
+        function deleteOne(index) {
+            allToDos.splice(index, 1)
+            displayProducts();
+
+            // var response = prompt("Which ToDo do you want to delete")
+            // if (response) {
+            //     allToDos.splice(response, 1)
+            //     displayProducts();
+            // }
+        }
+
+        function editOne(index) {
+            var response = prompt("to what")
+            allToDos.splice(index, 1, response)
+            displayProducts();
+
+            // var response = prompt("What ToDo do you want to change")
+            // allToDos.splice(response,1, response1)
+            // displayProducts();
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
